@@ -1,5 +1,3 @@
-<!-- ::: {align="center"} -->
-
 # 🤖 Nova.ai
 
 ### A full-stack AI chatbot powered by Groq
@@ -338,9 +336,5 @@ as plain text.
 
 ---
 
-<!-- ::: {align="center"} -->
-
 **Nova.ai** --- a learning project exploring the full-stack AI request
 flow, from a React prompt to a Python API and a readable LLM response.
-
-<!-- ::: -->
