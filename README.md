@@ -1,4 +1,5 @@
-::: {align="center"}
+<!-- ::: {align="center"} -->
+
 # 🤖 Nova.ai
 
 ### A full-stack AI chatbot powered by Groq
@@ -9,7 +10,7 @@ Python FastAPI API.
 **React · Vite · Python · FastAPI · Groq**
 :::
 
-------------------------------------------------------------------------
+---
 
 ## ✨ Overview
 
@@ -23,49 +24,53 @@ communication, API design, Markdown rendering, and user experience.
 
 ## 🚀 Features
 
--   💬 **Interactive chat UI** --- ask questions, explore ideas, get
-    coding help, and improve writing.
--   🧠 **Groq-powered responses** --- generate answers using a supported
-    language model.
--   📝 **Markdown rendering** --- display headings, lists, tables, and
-    code blocks in a readable format.
--   📋 **Copy responses** --- copy an assistant response for reuse.
--   💡 **Prompt suggestions** --- start with suggested prompts for
-    common tasks.
--   ⏳ **Loading feedback** --- see when a response is being generated.
--   🔄 **New chat** --- clear the current conversation.
--   ⚠️ **Error feedback** --- show a message when a request fails.
--   📚 **API documentation** --- explore FastAPI endpoints through
-    Swagger UI at `/docs`.
+- 💬 **Interactive chat UI** --- ask questions, explore ideas, get
+  coding help, and improve writing.
+- 🧠 **Groq-powered responses** --- generate answers using a supported
+  language model.
+- 📝 **Markdown rendering** --- display headings, lists, tables, and
+  code blocks in a readable format.
+- 📋 **Copy responses** --- copy an assistant response for reuse.
+- 💡 **Prompt suggestions** --- start with suggested prompts for
+  common tasks.
+- ⏳ **Loading feedback** --- see when a response is being generated.
+- 🔄 **New chat** --- clear the current conversation.
+- ⚠️ **Error feedback** --- show a message when a request fails.
+- 📚 **API documentation** --- explore FastAPI endpoints through
+  Swagger UI at `/docs`.
 
 ## 🧰 Tech stack
 
-  -----------------------------------------------------------------------
-  Layer                   Technology              Purpose
-  ----------------------- ----------------------- -----------------------
-  Frontend                React                   Chat interface and
-                                                  interactive UI
+---
 
-  Frontend tooling        Vite                    Development server and
-                                                  build tooling
+Layer Technology Purpose
 
-  Styling                 CSS                     Dark interface and
-                                                  visual styling
+---
 
-  Markdown                `react-markdown`        Render Markdown as
-                                                  React elements
+Frontend React Chat interface and
+interactive UI
 
-  Markdown extensions     `remark-gfm`            Tables and GitHub
-                                                  Flavored Markdown
+Frontend tooling Vite Development server and
+build tooling
 
-  Backend                 Python, FastAPI         Server-side logic and
-                                                  HTTP API
+Styling CSS Dark interface and
+visual styling
 
-  AI provider             Groq API                Generate AI responses
+Markdown `react-markdown` Render Markdown as
+React elements
 
-  Configuration           Environment variables,  Keep API credentials on
-                          `python-dotenv`         the backend
-  -----------------------------------------------------------------------
+Markdown extensions `remark-gfm` Tables and GitHub
+Flavored Markdown
+
+Backend Python, FastAPI Server-side logic and
+HTTP API
+
+AI provider Groq API Generate AI responses
+
+Configuration Environment variables, Keep API credentials on
+`python-dotenv` the backend
+
+---
 
 > **Model note:** During development, this project used
 > `openai/gpt-oss-120b`. Model availability can change, so check the
@@ -74,7 +79,7 @@ communication, API design, Markdown rendering, and user experience.
 
 ## 🏗️ How it works
 
-``` mermaid
+```mermaid
 flowchart TD
     A[User in browser] --> B[React + Vite frontend]
     B -->|POST /chat| C[FastAPI backend]
@@ -96,17 +101,19 @@ flowchart TD
 
 ### API endpoints
 
-  Method   Endpoint   Purpose
-  -------- ---------- --------------------------------------------------
-  `POST`   `/chat`    Accept a prompt and return an AI-generated reply
-  `GET`    `/docs`    Open interactive FastAPI documentation
+Method Endpoint Purpose
+
+---
+
+`POST` `/chat` Accept a prompt and return an AI-generated reply
+`GET` `/docs` Open interactive FastAPI documentation
 
 The frontend sends JSON with a `prompt` field and reads the response
 from `data.reply`.
 
 Example request:
 
-``` json
+```json
 {
   "prompt": "Explain how REST APIs work."
 }
@@ -114,7 +121,7 @@ Example request:
 
 ## 📁 Project structure
 
-``` text
+```text
 nova-ai-chatbot/
 ├── backend/
 │   ├── main.py
@@ -147,10 +154,10 @@ purpose; the frontend has its own Node package files.
 
 ## ⚙️ Requirements
 
--   Python 3.10 or newer recommended
--   Node.js and npm
--   A [Groq account](https://console.groq.com/) and API key
--   Internet access
+- Python 3.10 or newer recommended
+- Node.js and npm
+- A [Groq account](https://console.groq.com/) and API key
+- Internet access
 
 ## 🛠️ Setup and run locally
 
@@ -158,28 +165,28 @@ Run the backend and frontend in **separate terminals**.
 
 ### 1. Clone the repository
 
-``` bash
+```bash
 git clone https://github.com/PawarManish/nova-ai-chatbot.git
 cd nova-ai-chatbot
 ```
 
 ### 2. Configure the backend
 
-``` powershell
+```powershell
 cd backend
 ```
 
 This project includes `pyproject.toml` and `uv.lock`. If you have
 [uv](https://docs.astral.sh/uv/) installed, sync the dependencies:
 
-``` powershell
+```powershell
 uv sync
 ```
 
 Create a `.env` file in the backend directory if that is where the
 application loads environment variables:
 
-``` env
+```env
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
@@ -191,7 +198,7 @@ file or put the key in frontend code.**
 From the `backend` directory, if the FastAPI instance is named `app` in
 `main.py`, run:
 
-``` powershell
+```powershell
 uv run uvicorn main:app --reload
 ```
 
@@ -204,7 +211,7 @@ Open <http://127.0.0.1:8000/docs> to check that the API is running.
 
 Open a **second terminal** at the repository root:
 
-``` powershell
+```powershell
 cd frontend
 npm install
 npm run dev
@@ -228,32 +235,32 @@ frontend configuration.
 
 ## 🔐 Security notes
 
--   Keep `GROQ_API_KEY` on the backend only.
--   Do not expose secrets through `VITE_` variables; frontend variables
-    are bundled into client-side code.
--   Ensure `.env`, `.venv/`, `__pycache__/`, `node_modules/`, and build
-    output are ignored by Git.
--   Configure FastAPI CORS to allow only trusted frontend origins when
-    deploying.
--   Add input validation and rate limiting before exposing the API
-    publicly.
--   If an API key has ever been committed to a public repository, revoke
-    it and create a replacement.
+- Keep `GROQ_API_KEY` on the backend only.
+- Do not expose secrets through `VITE_` variables; frontend variables
+  are bundled into client-side code.
+- Ensure `.env`, `.venv/`, `__pycache__/`, `node_modules/`, and build
+  output are ignored by Git.
+- Configure FastAPI CORS to allow only trusted frontend origins when
+  deploying.
+- Add input validation and rate limiting before exposing the API
+  publicly.
+- If an API key has ever been committed to a public repository, revoke
+  it and create a replacement.
 
 ## 🧠 What I learned
 
--   **LLM integration:** call a hosted language model from a Python
-    backend.
--   **Frontend/backend communication:** connect React to a FastAPI
-    endpoint over HTTP using JSON.
--   **API design:** keep request and response formats consistent.
--   **Markdown rendering:** display structured AI responses instead of
-    raw Markdown.
--   **Conversation context:** previous messages only provide context if
-    included in later model requests.
--   **Environment variables:** keep API credentials on the server.
--   **Debugging:** troubleshoot model IDs, request schemas, CORS, and
-    server configuration.
+- **LLM integration:** call a hosted language model from a Python
+  backend.
+- **Frontend/backend communication:** connect React to a FastAPI
+  endpoint over HTTP using JSON.
+- **API design:** keep request and response formats consistent.
+- **Markdown rendering:** display structured AI responses instead of
+  raw Markdown.
+- **Conversation context:** previous messages only provide context if
+  included in later model requests.
+- **Environment variables:** keep API credentials on the server.
+- **Debugging:** troubleshoot model IDs, request schemas, CORS, and
+  server configuration.
 
 ## 🧯 Challenges and solutions
 
@@ -283,55 +290,57 @@ as plain text.
 
 ### Frontend could not reach backend
 
--   Confirm FastAPI is running.
--   Check the frontend API URL and endpoint.
--   Inspect the browser console and backend terminal.
--   Check CORS settings if the browser reports a cross-origin error.
--   Confirm the frontend sends `{"prompt": "..."}` and the backend
-    returns a `reply` field.
+- Confirm FastAPI is running.
+- Check the frontend API URL and endpoint.
+- Inspect the browser console and backend terminal.
+- Check CORS settings if the browser reports a cross-origin error.
+- Confirm the frontend sends `{"prompt": "..."}` and the backend
+  returns a `reply` field.
 
 ## ⚠️ Current limitations
 
--   Messages are held in frontend state and are lost when the page is
-    refreshed.
--   There is no database, user authentication, or per-user conversation
-    storage.
--   Multi-turn context depends on what the backend maintains or sends to
-    the model.
--   The frontend uses a local backend URL by default and needs
-    configuration for deployment.
--   Live information, such as weather, requires an external data source
-    or tool.
--   Long conversation histories can increase token usage.
--   Model access, rate limits, and usage costs depend on Groq and the
-    account.
+- Messages are held in frontend state and are lost when the page is
+  refreshed.
+- There is no database, user authentication, or per-user conversation
+  storage.
+- Multi-turn context depends on what the backend maintains or sends to
+  the model.
+- The frontend uses a local backend URL by default and needs
+  configuration for deployment.
+- Live information, such as weather, requires an external data source
+  or tool.
+- Long conversation histories can increase token usage.
+- Model access, rate limits, and usage costs depend on Groq and the
+  account.
 
 ## 🛣️ Future improvements
 
--   Stream responses as they are generated.
--   Persist conversations and add conversation management.
--   Add authentication and per-user chat history.
--   Configure the backend URL through environment-based frontend
-    configuration.
--   Add automated tests, input validation, improved error handling, and
-    rate limiting.
--   Integrate tools for live information.
--   Improve deployment configuration, logging, accessibility, and
-    responsive behavior.
+- Stream responses as they are generated.
+- Persist conversations and add conversation management.
+- Add authentication and per-user chat history.
+- Configure the backend URL through environment-based frontend
+  configuration.
+- Add automated tests, input validation, improved error handling, and
+  rate limiting.
+- Integrate tools for live information.
+- Improve deployment configuration, logging, accessibility, and
+  responsive behavior.
 
 ## 📚 Useful links
 
--   [Groq Console](https://console.groq.com/)
--   [Groq model documentation](https://console.groq.com/docs/models)
--   [FastAPI documentation](https://fastapi.tiangolo.com/)
--   [React documentation](https://react.dev/)
--   [Vite documentation](https://vite.dev/)
--   [react-markdown](https://github.com/remarkjs/react-markdown)
--   [remark-gfm](https://github.com/remarkjs/remark-gfm)
+- [Groq Console](https://console.groq.com/)
+- [Groq model documentation](https://console.groq.com/docs/models)
+- [FastAPI documentation](https://fastapi.tiangolo.com/)
+- [React documentation](https://react.dev/)
+- [Vite documentation](https://vite.dev/)
+- [react-markdown](https://github.com/remarkjs/react-markdown)
+- [remark-gfm](https://github.com/remarkjs/remark-gfm)
 
-------------------------------------------------------------------------
+---
 
-::: {align="center"}
+<!-- ::: {align="center"} -->
+
 **Nova.ai** --- a learning project exploring the full-stack AI request
 flow, from a React prompt to a Python API and a readable LLM response.
-:::
+
+<!-- ::: -->
