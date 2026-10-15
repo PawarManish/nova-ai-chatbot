@@ -372,3 +372,5 @@ assistant responses through `MarkdownRenderer`.
 flow: collect a prompt in React, send it to a Python API, request a
 response from an LLM, and render the result as readable Markdown in the
 browser.
+#   n o v a - a i - c h a t b o t  
+ 
